@@ -10,11 +10,17 @@ public class PlayerController : MonoBehaviour
 
 	private GameObject go;
 
+	AudioSource se;
+	AudioClip jumpSE;
+
+
     // Use this for initialization
     void Start()
     {
 		this.rd = GetComponent<Rigidbody>();
 		this.go = GameObject.Find("Canvas");
+		this.se = GetComponent<AudioSource>();
+		this.jumpSE = this.se.clip;
     }
 
     // Update is called once per frame
@@ -23,6 +29,7 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown("Jump"))
 		{
 			this.rd.velocity = new Vector3(0, jumpPower, 0);
+			this.se.PlayOneShot(jumpSE, 0.5f);
 		}
     }
 

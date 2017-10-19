@@ -8,10 +8,13 @@ public class PlayerController : MonoBehaviour
 	
 	private Rigidbody rd;
 
+	private GameObject go;
+
     // Use this for initialization
     void Start()
     {
 		this.rd = GetComponent<Rigidbody>();
+		this.go = GameObject.Find("Canvas");
     }
 
     // Update is called once per frame
@@ -22,4 +25,10 @@ public class PlayerController : MonoBehaviour
 			this.rd.velocity = new Vector3(0, jumpPower, 0);
 		}
     }
+
+	void OnCollisionEnter(Collision other)
+	{
+		// ゲームオーバーメソッドの呼び出し
+		this.go.GetComponent<UIController>().GameOver();
+	}
 }

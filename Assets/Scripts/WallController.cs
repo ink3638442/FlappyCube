@@ -9,7 +9,8 @@ public class WallController : MonoBehaviour
 	// Use this for initialization
 	void Start()
     {
-
+		// 時間で削除するパターン
+		Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame

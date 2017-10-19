@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
 		this.rd = GetComponent<Rigidbody>();
 		this.go = GameObject.Find("Canvas");
+		
 		this.se = GetComponent<AudioSource>();
 		this.jumpSE = this.se.clip;
     }
@@ -37,5 +38,14 @@ public class PlayerController : MonoBehaviour
 	{
 		// ゲームオーバーメソッドの呼び出し
 		this.go.GetComponent<UIController>().GameOver();
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "ScoreTrigger")
+		{
+			// 得点メソッドの呼び出し
+			this.go.GetComponent<UIController>().Score();
+		}
 	}
 }

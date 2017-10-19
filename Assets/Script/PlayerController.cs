@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown("Jump"))
 		{
 			this.rd.velocity = new Vector3(0, jumpPower, 0);
-			this.se.PlayOneShot(jumpSE, 0.5f);
+			this.se.PlayOneShot(jumpSE, 0.1f);
 		}
     }
 
